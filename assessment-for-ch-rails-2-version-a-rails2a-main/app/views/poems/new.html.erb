@@ -1,0 +1,21 @@
+<h1>Create New Poem</h1>
+
+<form action="<%= poems_url %>" method="post">Create New Poem
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label for="">Title:
+    <input type="text" name="poem[title]" value="<%= @poem.title %>">
+    <%= @poem.title %>
+</label>
+
+<label for="">Stanzas:
+    <input type="text" name="poem[stanzas]" value="<%= @poem.stanzas %>">
+</label>
+
+<label for="">Complete?
+<input type="radio" name="poem[complete]" value="true">
+<input type="radio" name="poem[complete]" value="false">
+</label>
+
+<input type="submit" value="Create Poem">
+
+</form>

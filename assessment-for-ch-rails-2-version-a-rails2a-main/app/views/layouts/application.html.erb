@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails2a</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body>
+    <% if logged_in? %>
+    <form action="<%= session_url %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Sign Out">
+    </form>
+    <% end %>
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+    <%= error %>
+     <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
